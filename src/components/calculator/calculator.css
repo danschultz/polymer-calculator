@@ -40,6 +40,10 @@
   width: calc(25% - 1px);
 }
 
+.grid-element:active {
+  opacity: 0.9;
+}
+
 .grid-spacer::before {
   content: "";
 }

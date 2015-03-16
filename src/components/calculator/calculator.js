@@ -1,8 +1,15 @@
 Polymer({
   // Model
   state: {
+    // The selected operation, defined as a function (num) -> num. The function should
+    // close over the inputted value from the previous state. The body of the function
+    // will generally look something like this: (value) => previous (op) value.
     operation: null,
+
+    // The displayed value as a number.
     value: 0,
+
+    // Indicates if the next numeric input should replace `value` or append to it.
     replaceNext: true
   },
 
@@ -19,7 +26,6 @@ Polymer({
   },
 
   domReady: function() {
-    // Append the inputted number to the current state
     var numberElements = this.shadowRoot.querySelectorAll(".number");
     iterate(numberElements, function(element) {
       element.addEventListener("click", function(event) {
@@ -28,6 +34,9 @@ Polymer({
       }.bind(this));
     }.bind(this));
 
+    // Add event listeners for each button that performs an operation, i.e. add, subtract,
+    // multiply, divide, etc. Each button has a `data-` attribute that defines which action
+    // to be called.
     var operatableElements = this.shadowRoot.querySelectorAll(".operatable");
     iterate(operatableElements, function(element) {
       element.addEventListener("click", function(event) {
@@ -37,12 +46,21 @@ Polymer({
     }.bind(this));
   },
 
+  // Update - Updates the state of the calculator for a given action, and updates the
+  // displayed value.
+
   update: function(action) {
     this.state = action.call(this, this.state);
     this.$.display.textContent = this.state.value.toString();
   },
 
-  // Actions
+  // Actions - The actions for the calculator. Actions don't modify the component's 
+  // state directly. Instead, each method returns a function that takes in a state 
+  // object as an argument, and returns a new object that represents the modified state.
+  //
+  // The update() method is used to modify the component's state. You pass it an action,
+  // the action is invoked, and the component's state is updated with the state returned
+  // by the action.
 
   number: function(value) {
     return function(state) {
