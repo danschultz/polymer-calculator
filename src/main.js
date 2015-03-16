@@ -34,6 +34,16 @@ function update(displayElement, action) {
 
 // Actions
 
+function number(value) {
+  return function(state) {
+    return {
+      value: state.replaceNext ? value : Number(state.value.toString() + value.toString()), 
+      operation: state.operation,
+      replaceNext: false
+    };
+  }
+}
+
 function clear() {
   return function(state) {
     return {
@@ -64,16 +74,6 @@ function squareRoot() {
   }
 }
 
-function number(value) {
-  return function(state) {
-    return {
-      value: state.replaceNext ? value : Number(state.value.toString() + value.toString()), 
-      operation: state.operation,
-      replaceNext: false
-    };
-  }
-}
-
 function equals() {
   return function(state) {
     return {
@@ -96,7 +96,7 @@ function add() {
   }
 }
 
-function subtract(left) {
+function subtract() {
   return function(state) {
     return {
       value: state.value,
@@ -108,7 +108,7 @@ function subtract(left) {
   }
 }
 
-function multiply(left) {
+function multiply() {
   return function(state) {
     return {
       value: state.value,
@@ -120,7 +120,7 @@ function multiply(left) {
   }
 }
 
-function divide(left) {
+function divide() {
   return function(state) {
     return {
       value: state.value,
