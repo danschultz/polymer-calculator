@@ -34,6 +34,36 @@ function update(displayElement, action) {
 
 // Actions
 
+function clear() {
+  return function(state) {
+    return {
+      value: 0,
+      operation: null,
+      replaceNext: true
+    }
+  }
+}
+
+function negate() {
+  return function(state) {
+    return {
+      value: -state.value,
+      operation: state.operation,
+      replaceNext: true
+    }
+  }
+}
+
+function squareRoot() {
+  return function(state) {
+    return {
+      value: Math.sqrt(state.value),
+      operation: null,
+      replaceNext: true
+    }
+  }
+}
+
 function number(value) {
   return function(state) {
     return {
