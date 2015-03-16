@@ -1,0 +1,12 @@
+{
+  "name": "calculator",
+  "version": "0.0.0",
+  "authors": [
+    "Dan Schultz <schultz.t.dan@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.5"
+  }
+}

@@ -1,44 +1,14 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+
+  <link rel="import" href="components/calculator/calculator.html">
 </head>
 
 <body>
-  <div class="calculator" data-theme="light">
-    <div id="display" class="calculator--display">0</div>
-    <div class="caclulator--grid">
-      <div class="caclulator--grid-row">
-        <button class="calculator--grid-element calculator--modifier operatable" data-operation="clear">C</button>
-        <button class="calculator--grid-element calculator--modifier operatable" data-operation="negate">&#177;</button>
-        <button class="calculator--grid-element calculator--modifier operatable" data-operation="squareRoot">&#8730;</button>
-        <button class="calculator--grid-element calculator--operation operatable" data-operation="divide">&#247;</button>
-      </div>
-      <div class="caclulator--grid-row">
-        <button class="calculator--grid-element calculator--number">7</button>
-        <button class="calculator--grid-element calculator--number">8</button>
-        <button class="calculator--grid-element calculator--number">9</button>
-        <button class="calculator--grid-element calculator--operation operatable" data-operation="multiply">&#215;</button>
-      </div>
-      <div class="caclulator--grid-row">
-        <button class="calculator--grid-element calculator--number">4</button>
-        <button class="calculator--grid-element calculator--number">5</button>
-        <button class="calculator--grid-element calculator--number">6</button>
-        <button class="calculator--grid-element calculator--operation operatable" data-operation="subtract">&#8722;</button>
-      </div>
-      <div class="caclulator--grid-row">
-        <button class="calculator--grid-element calculator--number">1</button>
-        <button class="calculator--grid-element calculator--number">2</button>
-        <button class="calculator--grid-element calculator--number">3</button>
-        <button class="calculator--grid-element calculator--operation operatable" data-operation="add">+</button>
-      </div>
-      <div class="caclulator--grid-row">
-        <button class="calculator--grid-element calculator--number">0</button>
-        <div class="calculator--grid-element calculator--spacer"></div>
-        <div class="calculator--grid-element calculator--spacer"></div>
-        <button class="calculator--grid-element calculator--operation operatable" data-operation="equals">=</button>
-      </div>
-    </div>
-  </div>
+  <button id="theme-toggle">Toggle Light/Dark</button>
+  <qu-calculator id="calculator" class="calculator"></qu-calculator>
 
   <script src="main.js"></script>
   <script>

@@ -1,0 +1,42 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<polymer-element name="qu-calculator" constructor="Calculator" attributes="theme">
+  <template>
+    <link rel="stylesheet" href="calculator.css">
+
+    <div id="display" class="display">0</div>
+    <div class="grid">
+      <div class="grid-row">
+        <button class="grid-element grid-button modifier operatable" data-operation="clear">C</button>
+        <button class="grid-element grid-button modifier operatable" data-operation="negate">&#177;</button>
+        <button class="grid-element grid-button modifier operatable" data-operation="squareRoot">&#8730;</button>
+        <button class="grid-element grid-button operation operatable" data-operation="divide">&#247;</button>
+      </div>
+      <div class="grid-row">
+        <button class="grid-element grid-button number">7</button>
+        <button class="grid-element grid-button number">8</button>
+        <button class="grid-element grid-button number">9</button>
+        <button class="grid-element grid-button operation operatable" data-operation="multiply">&#215;</button>
+      </div>
+      <div class="grid-row">
+        <button class="grid-element grid-button number">4</button>
+        <button class="grid-element grid-button number">5</button>
+        <button class="grid-element grid-button number">6</button>
+        <button class="grid-element grid-button operation operatable" data-operation="subtract">&#8722;</button>
+      </div>
+      <div class="grid-row">
+        <button class="grid-element grid-button number">1</button>
+        <button class="grid-element grid-button number">2</button>
+        <button class="grid-element grid-button number">3</button>
+        <button class="grid-element grid-button operation operatable" data-operation="add">+</button>
+      </div>
+      <div class="grid-row">
+        <button class="grid-element grid-button number">0</button>
+        <div class="grid-element grid-spacer"></div>
+        <div class="grid-element grid-spacer"></div>
+        <button class="grid-element grid-button operation operatable" data-operation="equals">=</button>
+      </div>
+    </div>
+  </template>
+  <script src="calculator.js"></script>
+</polymer-element>

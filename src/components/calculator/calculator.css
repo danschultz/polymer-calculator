@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  font-family: "Helvetica Neue";
+  font-weight: 100;
+}
+
+.display {
+  font-size: 3em;
+  text-align: right;
+  padding: 0.2em;
+}
+
+.grid {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  padding-right: 1px;
+  padding-bottom: 1px;
+}
+
+.grid-row {
+  display: inline-block;
+  width: 100%;
+}
+
+.grid-button {
+  font-family: "Helvetica Neue";
+  font-weight: 100;
+
+  border: none;
+  cursor: pointer;
+  font-size: 1.8em;
+  outline: none;
+}
+
+.grid-element {
+  float: left;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: calc(25% - 1px);
+}
+
+.grid-spacer::before {
+  content: "";
+}
+
+/* Dark theme */
+
+:host([theme="dark"]) {
+  background-color: black;
+}
+
+:host([theme="dark"]) .display {
+  color: #fff;
+}
+
+:host([theme="dark"]) .number {
+  background-color: #e0e0e0;
+}
+
+:host([theme="dark"]) .operation {
+  background-color: #f5923e;
+}
+
+:host([theme="dark"]) .modifier {
+  background-color: #d6d6d6;
+}
+
+/* Light theme */
+:host([theme="light"]) {
+  background-color: #F6F6F6;
+}
+
+:host([theme="light"]) .number {
+  background-color: #e0e0e0;
+}
+
+:host([theme="light"]) .operation {
+  background-color: #F26052;
+}
+
+:host([theme="light"]) .modifier {
+  background-color: #d6d6d6;
+}
