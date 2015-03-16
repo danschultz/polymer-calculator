@@ -2,37 +2,20 @@ function main() {
   var displayElement = document.querySelector("#display");
 
   // Append the inputted number to the current state
-  var numberElements = document.querySelectorAll(".calculator--buttons--number");
-  for (var i = 0; i < numberElements.length; i++) {
-    numberElements[i].addEventListener("click", function(event) {
+  var numberElements = document.querySelectorAll(".calculator--number");
+  iterate(numberElements, function(element) {
+    element.addEventListener("click", function(event) {
       var value = asNumber(event.target.textContent);
       update(displayElement, number(value));
     });
-  }
-
-  var addButton = document.querySelector("#add");
-  addButton.addEventListener("click", function(event) {
-    update(displayElement, add());
   });
 
-  var subtractButton = document.querySelector("#subtract");
-  subtractButton.addEventListener("click", function(event) {
-    update(displayElement, subtract());
-  });
-
-  var multiplyButton = document.querySelector("#multiply");
-  multiplyButton.addEventListener("click", function(event) {
-    update(displayElement, multiply());
-  });
-
-  var divideButton = document.querySelector("#divide");
-  divideButton.addEventListener("click", function(event) {
-    update(displayElement, divide());
-  });
-
-  var equalsButton = document.querySelector("#equals");
-  equalsButton.addEventListener("click", function(event) {
-    update(displayElement, equals());
+  var operatableElements = document.querySelectorAll(".operatable");
+  iterate(operatableElements, function(element) {
+    element.addEventListener("click", function(event) {
+      var operation = event.target.dataset.operation;
+      update(displayElement, this[operation]());
+    }.bind(this));
   });
 }
 
@@ -127,4 +110,10 @@ function evaluate(state) {
 
 function asNumber(value) {
   return Number(value.toString());
+}
+
+function iterate(elements, block) {
+  for (var i = 0; i < elements.length; i++) {
+    block(elements[i]);
+  }
 }
